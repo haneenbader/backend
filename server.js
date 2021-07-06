@@ -1,8 +1,8 @@
 const express = require('express') // require the express package
-const app = express() // initialize your express app instance
 const cors = require('cors');
-const axios = require('axios'); // require the package
+const app = express() // initialize your express app instance
 const mongoose = require("mongoose");
+const axios = require('axios'); // require the package
 app.use(cors()) // after you initialize your express app instance
 app.use(express.json())
 require('dotenv').config();
@@ -55,7 +55,7 @@ class Drink {
 
 // function 
 function getDataHandler (req,res){
-  const url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
+  const url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
   axios.get(url).then(result => {
     let drinkArr =result.data.map(item=>{
        return new Drink(item)
